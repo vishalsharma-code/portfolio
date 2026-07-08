@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --bg-cream: #FBEEE4;
+  --bg-white: #FFFFFF;
+  --accent-orange: #EE6C2E;
+  --text-navy: #101A3D;
+  --text-gray: #5C6478;
+  --badge-green: #2ECC71;
+  --gradient-start: #C77DFF;
+  --gradient-end: #EE6C2E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-navy);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-orange);
+  border-radius: 3px;
+}
+
+/* Utility classes */
+.btn-primary {
+  background-color: var(--accent-orange);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #d45a1e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(238, 108, 46, 0.4);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-navy);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid var(--text-navy);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: var(--text-navy);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.section-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-orange);
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--text-navy);
+  line-height: 1.15;
+}
+
+.section-title .orange {
+  color: var(--accent-orange);
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(16, 26, 61, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 40px rgba(16, 26, 61, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Gradient border card */
+.gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Decorative dots */
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2.5px solid currentColor;
+  position: absolute;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section padding */
+.section-pad {
+  padding: 6rem 0;
+}
+
+/* Skill chip */
+.skill-chip {
+  background: white;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--text-navy);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skill-chip:hover {
+  background: var(--accent-orange);
+  color: white;
+  border-color: var(--accent-orange);
+  transform: scale(1.05);
+}
+
+/* Project card thumbnail */
+.proj-thumb {
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Filter tab */
+.filter-tab {
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.filter-tab.active {
+  background: var(--accent-orange);
+  color: white;
+}
+
+.filter-tab:not(.active) {
+  background: white;
+  color: var(--text-navy);
+  border-color: #e5e7eb;
+}
+
+.filter-tab:not(.active):hover {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+/* Stat card */
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: var(--accent-orange);
+  line-height: 1;
+}
+
+/* Timeline */
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--accent-orange);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px var(--accent-orange);
+  flex-shrink: 0;
+}
+
+/* Nav active */
+.nav-link {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-orange);
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--text-navy);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* Responsive container */
+.container-xl {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
