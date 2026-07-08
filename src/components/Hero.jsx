@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiDownload, FiMail, FiMapPin, FiCode } from 'react-icons/fi';
-import avatarImg from '../assets/avatar.png';
+import avatarImg from '../assets/profile.jpeg';
 
 const ROLES = [
   { text: 'Software Engineer', color: 'var(--text-navy)', icon: '⚛️' },
